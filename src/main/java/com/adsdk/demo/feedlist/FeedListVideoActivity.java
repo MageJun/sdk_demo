@@ -82,12 +82,14 @@ public class FeedListVideoActivity extends Activity implements AbsListView.OnScr
                 .setContainerRender(VideoSettings.ContainerRender.SDK)
                 .setAutoPlayPolicy(VideoSettings.AutoPlayPolicy.ALWAYS)
                 .build();
-
+        /**
+         * 视频信息流建议加上下面的配置，设置视频信息流预加载功能，可以有效提高用户体验并提高收益
+         * appendParameter(AdRequest.Parameters.KEY_ESP,AdRequest.Parameters.VALUE_ESP_4)
+         */
         adRequest = new AdRequest.Builder(getApplicationContext())
                 .setCodeId(getIntent().getStringExtra("codid"))
                 .setAdRequestCount(AD_COUNT)
-//                .appendParameter(AdRequest.Parameters.KEY_ESP,AdRequest.Parameters.VALUE_SIPL_4
-//                        | AdRequest.Parameters.VALUE_ESP_4 /* | AdRequest.Parameters.VALUE_ESP_2*/)
+                .appendParameter(AdRequest.Parameters.KEY_ESP,AdRequest.Parameters.VALUE_ESP_4)
                 .setSupportVideo(true)
                 .build();
 

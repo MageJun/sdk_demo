@@ -20,14 +20,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.adsdk.demo.R;
-import com.androidquery.AQuery;
-import com.androidquery.callback.AjaxStatus;
-import com.androidquery.callback.BitmapAjaxCallback;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeSet;
-
 import com.adsdk.demo.sdk.client.AdError;
 import com.adsdk.demo.sdk.client.AdRequest;
 import com.adsdk.demo.sdk.client.NativeAdData;
@@ -36,6 +28,13 @@ import com.adsdk.demo.sdk.client.VideoSettings;
 import com.adsdk.demo.sdk.client.feedlist.FeedListNativeAdListener;
 import com.adsdk.demo.sdk.client.media.MediaAdView;
 import com.adsdk.demo.sdk.client.media.NativeAdMediaListener;
+import com.androidquery.AQuery;
+import com.androidquery.callback.AjaxStatus;
+import com.androidquery.callback.BitmapAjaxCallback;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
 
 /**
  * demo中 我们所有的请求已经做过线程优化处理 请勿在子线程中请求 ！！！
@@ -86,15 +85,19 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
                 .setAutoPlayPolicy(VideoSettings.AutoPlayPolicy.ALWAYS)
                 .build();
 
-        /*
+        /**
          * 信息流添加视频信息流支持
          * setVideoSettings(videoSettings)
-           setSupportVideo(true)
+         * setSupportVideo(true)
+         *
+         * 视频信息流建议加上下面的配置，设置视频信息流预加载功能，可以有效提高用户体验并提高收益
+         * appendParameter(AdRequest.Parameters.KEY_ESP,AdRequest.Parameters.VALUE_ESP_4)
          */
         adRequest = new AdRequest.Builder(getApplicationContext())
                 .setCodeId(getIntent().getStringExtra("codid"))
                 .setVideoSettings(videoSettings)
                 .setSupportVideo(true)
+                .appendParameter(AdRequest.Parameters.KEY_ESP,AdRequest.Parameters.VALUE_ESP_4)
                 .setAdRequestCount(AD_COUNT)
                 .build();
 
