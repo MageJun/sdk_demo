@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_ad_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/jhsdk_text_black">
+
+    <TextView
+        android:id="@+id/skip_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minEms="1"
+        android:padding="5dp"
+        android:text="我是默认值 比较长"
+        android:textColor="@color/jhsdk_text_red" />
+
+</LinearLayout>
