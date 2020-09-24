@@ -87,7 +87,7 @@ dependencies {
     implementation files('libs\\Baidu_MobAds_SDK-release-v586.aar')
 
     //你们的aar
-    implementation files('libs\\juhe_ad_sdk_v40_test_202009231747.aar')
+    implementation files('libs\\juhe_ad_sdk_v41_test_202009241732.aar')
 
 //    implementation project(path: ':sdk')
 

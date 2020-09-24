@@ -47,7 +47,7 @@ public final class GlobalConfig {
          * D2110016 穿山甲
          *
          */
-        String FEED_LIST_NATIVE = "D2110008,D2110009,D2110010,D1960007,D1960009,D2110016,D2110015,D2110014";
+        String FEED_LIST_NATIVE = "D2110010,D1960007,D1960009,D2110016,D2110015,D2110014";
         /**
          * 自渲染信息流(视频)
          *
