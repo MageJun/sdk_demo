@@ -86,7 +86,7 @@ dependencies {
     //百度
 //    implementation files('libs\\Baidu_MobAds_SDK-release-v586.aar')
 
-    //你们的aar
+    //demo 聚合SDK，如果广点通是4.270以上版本，使用 juhe_ad_sdk_h_v53_demo.aar
     implementation files('libs\\juhe_ad_sdk_l_v53_demo.aar')
 
 //    implementation project(path: ':sdk')
