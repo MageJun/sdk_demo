@@ -5,10 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.common.LogControl;
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.VideoSettings;
-import com.adsdk.demo.sdk.client.interstitial.InterstitialAdListener;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.VideoSettings;
+import com.adsdk.demo.pkg.sdk.client.interstitial.InterstitialAdListener;
 
 public class InterstitialActivity extends AppCompatActivity {
     

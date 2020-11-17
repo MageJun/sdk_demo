@@ -126,7 +126,7 @@
 -keep class com.google.gson.** {*;}
 -keep class com.alibaba.fastjson.** {*;}
 
--keep class com.adsdk.demo.sdk.*.** {*;}
+-keep class com.adsdk.demo.pkg.sdk.*.** {*;}
 
 -dontwarn com.alibaba.fastjson.**
 -dontwarn com.baidu.**

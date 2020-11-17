@@ -2,8 +2,8 @@ package com.adsdk.demo;
 
 import android.support.multidex.MultiDexApplication;
 
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.SdkConfiguration;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.SdkConfiguration;
 
 /**
  * ----------开始对接前，请务必阅读一下注意事项----------

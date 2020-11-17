@@ -32,7 +32,7 @@ import com.adsdk.demo.splash.SplashSkipViewActivity;
 import com.adsdk.demo.splash.SplashWindow;
 import com.adsdk.demo.video.FullScreenVideoActivity;
 import com.adsdk.demo.video.RewardVideoActivity;
-import com.adsdk.demo.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
 import com.qq.e.comm.managers.status.SDKStatus;
 
 import java.util.ArrayList;

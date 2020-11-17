@@ -24,7 +24,7 @@ android {
     defaultConfig {
 
         // 改成你们的包名
-        applicationId "com.adsdk.demo3"
+        applicationId "com.adsdk.demo"
 
         minSdkVersion 17
         targetSdkVersion 28
@@ -75,19 +75,19 @@ dependencies {
 
     //以下依赖根据需求添加 例如：你们只需要广点通的广告 只需要添加广点通的aar即可
 
-    implementation files('libs\\MimoSdk.jar')
-    implementation files('libs\\SogouSDK_v2.5.aar')
-    implementation files('libs\\ks_adsdk-3.1.0.aar')
+//    implementation files('libs\\MimoSdk.jar')
+//    implementation files('libs\\SogouSDK_v2.5.aar')
+//    implementation files('libs\\ks_adsdk-3.1.0.aar')
 
     //穿山甲
-    implementation files('libs\\open_ad_sdk_3.1.0.3.aar')
+//    implementation files('libs\\open_ad_sdk_3.1.0.3.aar')
     //广点通
     implementation files('libs\\GDTSDK.unionNormal.4.232.1102.aar')
     //百度
-    implementation files('libs\\Baidu_MobAds_SDK-release-v586.aar')
+//    implementation files('libs\\Baidu_MobAds_SDK-release-v586.aar')
 
     //你们的aar
-    implementation files('libs\\juhe_ad_sdk_v46_test_202009281137.aar')
+    implementation files('libs\\juhe_ad_sdk_l_v53_demo.aar')
 
 //    implementation project(path: ':sdk')
 

@@ -30,7 +30,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="gone"
-        android:background="@color/tt_white"
+        android:background="#ffffff"
         >
         <Button
             android:id="@+id/btn_loadOnly"

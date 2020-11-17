@@ -11,10 +11,10 @@ import android.widget.FrameLayout;
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
 import com.adsdk.demo.common.LogControl;
-import com.adsdk.demo.sdk.client.AdController;
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.video.RewardVideoAdListener2;
+import com.adsdk.demo.pkg.sdk.client.AdController;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.video.RewardVideoAdListener2;
 
 public class RewardVideoActivity extends AppCompatActivity {
 
@@ -107,6 +107,11 @@ public class RewardVideoActivity extends AppCompatActivity {
             @Override
             public void onAdExposure() {
                 LogControl.i(TAG, "onAdExposure enter");
+            }
+
+            @Override
+            public void onReward() {
+                LogControl.i(TAG, "onReward enter");
             }
 
             @Override

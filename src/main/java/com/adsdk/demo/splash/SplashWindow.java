@@ -14,11 +14,11 @@ import android.view.WindowManager;
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.common.LogControl;
 import com.adsdk.demo.R;
-import com.adsdk.demo.sdk.client.AdController;
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.EmptyActivity;
-import com.adsdk.demo.sdk.client.splash.SplashAdExtListener;
+import com.adsdk.demo.pkg.sdk.client.AdController;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.EmptyActivity;
+import com.adsdk.demo.pkg.sdk.client.splash.SplashAdExtListener;
 
 import static android.view.WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
 import static android.view.WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;

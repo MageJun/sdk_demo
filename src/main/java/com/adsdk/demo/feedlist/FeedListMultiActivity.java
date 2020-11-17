@@ -20,14 +20,14 @@ import com.androidquery.AQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.NativeAdData;
-import com.adsdk.demo.sdk.client.data.AdDataListener;
-import com.adsdk.demo.sdk.client.data.BindParameters;
-import com.adsdk.demo.sdk.client.data.MultiAdData;
-import com.adsdk.demo.sdk.client.data.MultiAdDataLoadListener;
-import com.adsdk.demo.sdk.client.feedlist.AdView;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.NativeAdData;
+import com.adsdk.demo.pkg.sdk.client.data.AdDataListener;
+import com.adsdk.demo.pkg.sdk.client.data.BindParameters;
+import com.adsdk.demo.pkg.sdk.client.data.MultiAdData;
+import com.adsdk.demo.pkg.sdk.client.data.MultiAdDataLoadListener;
+import com.adsdk.demo.pkg.sdk.client.feedlist.AdView;
 
 public class FeedListMultiActivity extends Activity implements View.OnClickListener {
 

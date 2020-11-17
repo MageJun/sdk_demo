@@ -19,11 +19,10 @@ import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
 import com.adsdk.demo.common.DevMainActivity;
 import com.adsdk.demo.common.LogControl;
-import com.adsdk.demo.sdk.client.AdController;
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.splash.SplashAdExtListener;
-import com.adsdk.demo.sdk.client.splash.SplashAdListener;
+import com.adsdk.demo.pkg.sdk.client.AdController;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.splash.SplashAdExtListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,7 +130,7 @@ public class SplashActivity extends Activity {
                     // 跳过时间默认5秒 如需修改 控制台配置
                     // 超时时间自己处理
                     .build();
-            adRequest.loadSplashAd(splashAdListener);
+            adRequest.loadSplashAd(splashAdExtListener);
         }
 
     }
@@ -146,7 +145,35 @@ public class SplashActivity extends Activity {
         }
     }
 
-    private SplashAdListener splashAdListener = new SplashAdListener() {
+    private SplashAdExtListener splashAdExtListener = new SplashAdExtListener() {
+
+        @Override
+        public void onAdTick(long millisUntilFinished) {
+            LogControl.i(TAG, "onAdTick   ---   " + millisUntilFinished);
+        }
+
+        @Override
+        public void onAdSkip() {
+            LogControl.i(TAG, "onAdSkip");
+        }
+
+        @Override
+        public void onAdLoaded(AdController controller) {
+            /**
+             *
+             * 广告数据加载成功，
+             *
+             * 该方法回调表示广告请求成功，
+             *
+             * 媒体可以在这个方法中统计广告请求成功记录，
+             *
+             * 同时媒体自己的请求超时倒计时可以在这个方法中关闭
+             *
+             */
+            LogControl.i(TAG, "onAdLoaded");
+            adController = controller;
+            btnShow.setEnabled(true);
+        }
 
         /**
          * 常见错误
@@ -157,8 +184,7 @@ public class SplashActivity extends Activity {
         @Override
         public void onAdError(AdError adError) {
             LogControl.i(TAG, "onAdError enter , " + adError.toString());
-
-                /*
+              /*
                     5004、102006	广告无填充
                     这个是填充率低的问题 与SDK本身无关
                         1、是否安装有qq和微信 并打开
@@ -167,7 +193,6 @@ public class SplashActivity extends Activity {
                         4、请求太频繁、停一会儿再操作
                         5、新买的测试机而且没有手机卡 大概率获取不到广告的
                  */
-
         }
 
         @Override
@@ -177,14 +202,17 @@ public class SplashActivity extends Activity {
              *   广告点击之后会触发
              *   开发过程中一定要确保 点击广告时候有这个回调 否则会影响收益
              *
+             *   媒体可以在该方法中统计广告点击记录
+             *
              */
-            LogControl.i(TAG, "onAdClicked enter");
+            LogControl.i(TAG, "onAdClicked enter"
+            );
         }
 
         @Override
         public void onAdShow() {
             /**
-             * 广告已经准备好
+             * 广告已经准备好开始展示
              */
             LogControl.i(TAG, "onAdShow enter");
         }
@@ -211,51 +239,6 @@ public class SplashActivity extends Activity {
              *
              *   这个回调代码广告流程的结束，在这之前不允许任何释放关闭广告的操作！！！
              */
-            LogControl.i(TAG, "onAdDismissed enter");
-            next();
-        }
-    };
-
-    private SplashAdExtListener splashAdExtListener = new SplashAdExtListener() {
-        @Override
-        public void onAdTick(long millisUntilFinished) {
-            LogControl.i(TAG, "onAdTick   ---   " + millisUntilFinished);
-        }
-
-        @Override
-        public void onAdSkip() {
-            LogControl.i(TAG, "onAdSkip");
-        }
-
-        @Override
-        public void onAdLoaded(AdController controller) {
-            LogControl.i(TAG, "onAdLoaded");
-            adController = controller;
-            btnShow.setEnabled(true);
-        }
-
-        @Override
-        public void onAdError(AdError adError) {
-            LogControl.i(TAG, "onAdError enter , " + adError.toString());
-        }
-
-        @Override
-        public void onAdClicked() {
-            LogControl.i(TAG, "onAdClicked enter");
-        }
-
-        @Override
-        public void onAdShow() {
-            LogControl.i(TAG, "onAdShow enter");
-        }
-
-        @Override
-        public void onAdExposure() {
-            LogControl.i(TAG, "onAdExposure enter , tid = " + Thread.currentThread().getId());
-        }
-
-        @Override
-        public void onAdDismissed() {
             LogControl.i(TAG, "onAdDismissed enter");
             next();
         }

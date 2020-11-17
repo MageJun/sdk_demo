@@ -22,14 +22,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.adsdk.demo.R;
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.NativeAdData;
-import com.adsdk.demo.sdk.client.NativeAdListener;
-import com.adsdk.demo.sdk.client.VideoSettings;
-import com.adsdk.demo.sdk.client.feedlist.FeedListNativeAdListener;
-import com.adsdk.demo.sdk.client.media.MediaAdView;
-import com.adsdk.demo.sdk.client.media.NativeAdMediaListener;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.NativeAdData;
+import com.adsdk.demo.pkg.sdk.client.NativeAdListener;
+import com.adsdk.demo.pkg.sdk.client.VideoSettings;
+import com.adsdk.demo.pkg.sdk.client.feedlist.FeedListNativeAdListener;
+import com.adsdk.demo.pkg.sdk.client.media.MediaAdView;
+import com.adsdk.demo.pkg.sdk.client.media.NativeAdMediaListener;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.BitmapAjaxCallback;
@@ -113,7 +113,7 @@ public class FeedListVideoDevContainerRenderActivity extends Activity implements
             }
 
             @Override
-            public void onAdError(com.adsdk.demo.sdk.client.AdError adError) {
+            public void onAdError(com.adsdk.demo.pkg.sdk.client.AdError adError) {
                 onNoAD(adError);
             }
         });
@@ -170,7 +170,7 @@ public class FeedListVideoDevContainerRenderActivity extends Activity implements
         }
     }
 
-    public void onNoAD(com.adsdk.demo.sdk.client.AdError error) {
+    public void onNoAD(com.adsdk.demo.pkg.sdk.client.AdError error) {
         mIsLoading = false;
     }
 

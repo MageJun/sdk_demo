@@ -20,14 +20,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.adsdk.demo.R;
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.NativeAdData;
-import com.adsdk.demo.sdk.client.NativeAdListener;
-import com.adsdk.demo.sdk.client.VideoSettings;
-import com.adsdk.demo.sdk.client.feedlist.FeedListNativeAdListener;
-import com.adsdk.demo.sdk.client.media.MediaAdView;
-import com.adsdk.demo.sdk.client.media.NativeAdMediaListener;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.NativeAdData;
+import com.adsdk.demo.pkg.sdk.client.NativeAdListener;
+import com.adsdk.demo.pkg.sdk.client.VideoSettings;
+import com.adsdk.demo.pkg.sdk.client.feedlist.FeedListNativeAdListener;
+import com.adsdk.demo.pkg.sdk.client.media.MediaAdView;
+import com.adsdk.demo.pkg.sdk.client.media.NativeAdMediaListener;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.BitmapAjaxCallback;
@@ -129,7 +129,7 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
             }
 
             @Override
-            public void onAdError(com.adsdk.demo.sdk.client.AdError adError) {
+            public void onAdError(com.adsdk.demo.pkg.sdk.client.AdError adError) {
                 onNoAD(adError);
             }
         });
@@ -182,7 +182,7 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
         }
     }
 
-    public void onNoAD(com.adsdk.demo.sdk.client.AdError error) {
+    public void onNoAD(com.adsdk.demo.pkg.sdk.client.AdError error) {
         mIsLoading = false;
     }
 
@@ -325,7 +325,7 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
                     }
 
                     @Override
-                    public void onAdError(com.adsdk.demo.sdk.client.AdError adError) {
+                    public void onAdError(com.adsdk.demo.pkg.sdk.client.AdError adError) {
                         Log.i(TAG, "onADError enter , error = " + adError);
                     }
 

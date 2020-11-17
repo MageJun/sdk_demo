@@ -6,9 +6,9 @@ import android.widget.FrameLayout;
 
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.common.LogControl;
-import com.adsdk.demo.sdk.client.AdError;
-import com.adsdk.demo.sdk.client.AdRequest;
-import com.adsdk.demo.sdk.client.banner.BannerAdListener;
+import com.adsdk.demo.pkg.sdk.client.AdError;
+import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.adsdk.demo.pkg.sdk.client.banner.BannerAdListener;
 
 public class BannerActivity extends Activity {
     static final String TAG = "BannerActivity";
