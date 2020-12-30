@@ -15,9 +15,6 @@ buildscript {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
-        flatDir {
-            dirs '../sdk/libs','../app/libs','../sdk_api_test/libs'
-        }
     }
 android {
     compileSdkVersion 28
@@ -45,7 +42,7 @@ android {
     flavorDimensions "appName"
     productFlavors {
         appname {
-            manifestPlaceholders = [APPNAME: "SDK_Demo"]
+            manifestPlaceholders = [APPNAME: "JHSDK_Demo"]
         }
     }
 
@@ -65,30 +62,26 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'thrid_sdk_libs')
 
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation files('libs/android-support-v7-recyclerview.jar')
-    implementation files('libs\\android-query-full.0.26.7.jar')
+    implementation files('thrid_sdk_libs/android-support-v7-recyclerview.jar')
+    implementation files('thrid_sdk_libs/android-query-full.0.26.7.jar')
 
     //以下依赖根据需求添加 例如：你们只需要广点通的广告 只需要添加广点通的aar即可
-
-//    implementation files('libs\\MimoSdk.jar')
-//    implementation files('libs\\SogouSDK_v2.5.aar')
-//    implementation files('libs\\ks_adsdk-3.1.0.aar')
-
+    //快手
+//    implementation files('thrid_sdk_libs/ks_adsdk-3.3.8.aar')
     //穿山甲
-//    implementation files('libs\\open_ad_sdk_3.1.0.3.aar')
-    //广点通
-    implementation files('libs\\GDTSDK.unionNormal.4.232.1102.aar')
+//    implementation files('thrid_sdk_libs/ks_adsdk-3.3.0.3aar')
     //百度
-//    implementation files('libs\\Baidu_MobAds_SDK-release-v586.aar')
+//    implementation files('thrid_sdk_libs/baidu_ad_sdk_v595.aar')
+    //广点通
+    implementation files('thrid_sdk_libs/GDTSDK.unionNormal.4.232.1102.aar')
 
-    //demo 聚合SDK，如果广点通是4.270以上版本，使用 juhe_ad_sdk_h_v53_demo.aar
-    implementation files('libs\\juhe_ad_sdk_l_v53_demo.aar')
+    //demo 聚合SDK
+    implementation files('libs/juhe_ad_sdk_l_v59_demo.aar')
 
-//    implementation project(path: ':sdk')
 
 }

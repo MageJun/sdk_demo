@@ -78,7 +78,7 @@ public final class GlobalConfig {
         /*
          * 横幅
          */
-        String BANNER = "";
+        String BANNER = "D2110023";
 
     }
 

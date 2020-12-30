@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.adsdk.demo.GlobalConfig;
+import com.adsdk.demo.MainActivity;
 import com.adsdk.demo.R;
 import com.adsdk.demo.common.DevMainActivity;
 import com.adsdk.demo.common.LogControl;
@@ -107,8 +108,8 @@ public class SplashActivity extends Activity {
 
         if(isLoadOnly){
             //广告加载和展示分离
-            //必传 展示广告的activity
-            adRequest = new AdRequest.Builder(this)
+            //必传 任意一个Activity都可以
+            adRequest = new AdRequest.Builder(MainActivity.MAIN_INSTANCE)
                     //必传 广告位ID
                     .setCodeId(getIntent().getStringExtra("codid"))
                     //请求时可以不传广告容器，展示时传递即可
