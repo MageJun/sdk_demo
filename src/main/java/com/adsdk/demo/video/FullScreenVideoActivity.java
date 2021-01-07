@@ -1,19 +1,20 @@
 package com.adsdk.demo.video;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
+import com.adsdk.demo.common.BaseActivity;
 import com.adsdk.demo.common.LogControl;
+import com.adsdk.demo.common.ThreadExecutor;
 import com.adsdk.demo.pkg.sdk.client.AdController;
 import com.adsdk.demo.pkg.sdk.client.AdError;
 import com.adsdk.demo.pkg.sdk.client.AdRequest;
 import com.adsdk.demo.pkg.sdk.client.video.FullScreenVideoAdListenerExt;
 
-public class FullScreenVideoActivity extends AppCompatActivity {
+public class FullScreenVideoActivity extends BaseActivity {
 
     static String TAG = "FSVideo_TAG";
 
@@ -27,6 +28,8 @@ public class FullScreenVideoActivity extends AppCompatActivity {
         setContentView(GlobalConfig.RConfig.REWARD_VIDEO_ACTIVITY_LAYOUT_ID);
         btnShow = findViewById(R.id.btn_show);
         btnShow.setEnabled(false);
+        setTitle("全屏视频广告");
+        showEditLayout();
     }
     public void onClick(View view){
         switch (view.getId()) {
@@ -44,7 +47,7 @@ public class FullScreenVideoActivity extends AppCompatActivity {
     }
 
     private void loadAd(boolean isOnlyData) {
-
+        showProgress();
         adRequest = new AdRequest.Builder(this)
                 .setCodeId(getIntent().getStringExtra("codid"))
                 .build();
@@ -56,6 +59,9 @@ public class FullScreenVideoActivity extends AppCompatActivity {
                 LogControl.i(TAG, "onAdLoaded enter");
                 adDataController = adController;
                 btnShow.setEnabled(true);
+                invisibleEditLayout();
+                invisibleProgress();
+                loadSuccess();
             }
 
             @Override
@@ -82,6 +88,13 @@ public class FullScreenVideoActivity extends AppCompatActivity {
             @Override
             public void onAdExposure() {
                 LogControl.i(TAG, "onAdExposure enter");
+                ThreadExecutor.getMainThreadHandler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exposureSuccess();
+                    }
+                },5000);
+
             }
 
             @Override

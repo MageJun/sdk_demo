@@ -79,9 +79,9 @@ public class MainActivity extends Activity {
         textView.setText(
                 "聚合广告SDK \n" +
                         "注：version:  " + AdRequest.getSdkVersion() + "\n" +
-                        "意：PackageName : " + packageName + "\n" +
-                        "核：VersionName : " + versionName + "\n" +
-                        "对：GDTSdkVersion:" + gdtSdkVersion);
+                        "意：PackageName : " + packageName + "\n" +/*+ "\n" +
+                        "对：GDTSdkVersion:" + gdtSdkVersion*/
+                        "核：VersionName : " + versionName );
     }
 
 
@@ -101,6 +101,12 @@ public class MainActivity extends Activity {
     private void initViews() {
         gridView = this.findViewById(GlobalConfig.RConfig.MAIN_ACTIVITY_BTN_GRIDVIEW_ID);
         List<GridViewConfig> list = new ArrayList<>();
+        list.add(new GridViewConfig("初始化SDK", "", InitActivity.class, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this,InitActivity.class));
+            }
+        }));
         list.add(new GridViewConfig("开屏演示", GlobalConfig.ChannelId.SPLASH, SplashActivity.class));
 //        list.add(new GridViewConfig("开屏Window演示", GlobalConfig.ChannelId.SPLASH, SplashActivity.class, new View.OnClickListener() {
 //            @Override

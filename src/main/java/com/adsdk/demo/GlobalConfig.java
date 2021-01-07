@@ -66,7 +66,7 @@ public final class GlobalConfig {
          *
          * @see com.adsdk.demo.video.RewardVideoActivity
          */
-        String VIDEO = "D2110004,D2120009";
+        String VIDEO = "D2110004,D2120009,D2510007";
         /*
          * 插屏 （图视频混合，视频）
          */

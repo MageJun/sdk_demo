@@ -52,6 +52,7 @@
                 android:value="true" />
         </activity>
         <activity android:name=".splash.SplashActivity" />
+        <activity android:name=".InitActivity" />
         <activity android:name=".splash.SplashSkipViewActivity" />
         <activity android:name=".banner.BannerActivity" />
         <activity android:name=".interstitial.InterstitialActivity" />

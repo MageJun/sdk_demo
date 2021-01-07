@@ -2,7 +2,6 @@ package com.adsdk.demo.splash;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -18,6 +17,7 @@ import android.widget.Toast;
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.MainActivity;
 import com.adsdk.demo.R;
+import com.adsdk.demo.common.BaseActivity;
 import com.adsdk.demo.common.DevMainActivity;
 import com.adsdk.demo.common.LogControl;
 import com.adsdk.demo.pkg.sdk.client.AdController;
@@ -35,7 +35,7 @@ import java.util.List;
  *  👇👇👇👇👇👇👇
  *  @see SplashSkipViewActivity
  */
-public class SplashActivity extends Activity {
+public class SplashActivity extends BaseActivity {
 
     static final String TAG = "Splash_TAG";
     private boolean canJump = false;
@@ -49,11 +49,12 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_ID);
+        setContentLayoutView(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_ID);
         loadOnlyView = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_LOAD_ONLY_ID);
         btnShow = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_SHOW_ID);
         btnShow.setEnabled(false);
         loadOnlyView.setVisibility(View.VISIBLE);
+        setTitle("开屏广告");
     }
 
 
@@ -66,10 +67,12 @@ public class SplashActivity extends Activity {
                 break;
             case R.id.btn_show:
                 loadOnlyView.setVisibility(View.GONE);
+                invisiTitle();
                 showAds();
                 break;
             case R.id.btn_loadAndShow:
                 loadOnlyView.setVisibility(View.GONE);
+                invisiTitle();
                 isLoadOnly = false;
                 featchAd();
                 break;
@@ -172,6 +175,7 @@ public class SplashActivity extends Activity {
              *
              */
             LogControl.i(TAG, "onAdLoaded");
+            Toast.makeText(SplashActivity.this,"广告加载成功",Toast.LENGTH_LONG).show();
             adController = controller;
             btnShow.setEnabled(true);
         }
@@ -216,6 +220,7 @@ public class SplashActivity extends Activity {
              * 广告已经准备好开始展示
              */
             LogControl.i(TAG, "onAdShow enter");
+
         }
 
         @Override
@@ -230,6 +235,7 @@ public class SplashActivity extends Activity {
              *   测试时候一定要看这个
              */
             LogControl.i(TAG, "onAdExposure enter , tid = " + Thread.currentThread().getId());
+            Toast.makeText(SplashActivity.this,"广告成功曝光",Toast.LENGTH_LONG).show();
         }
 
         @Override

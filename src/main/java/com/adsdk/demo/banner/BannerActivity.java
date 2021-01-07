@@ -1,6 +1,5 @@
 package com.adsdk.demo.banner;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,13 +7,14 @@ import android.widget.FrameLayout;
 
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
+import com.adsdk.demo.common.BaseActivity;
 import com.adsdk.demo.common.LogControl;
 import com.adsdk.demo.pkg.sdk.client.AdController;
 import com.adsdk.demo.pkg.sdk.client.AdError;
 import com.adsdk.demo.pkg.sdk.client.AdRequest;
 import com.adsdk.demo.pkg.sdk.client.banner.BannerAdExtListener;
 
-public class BannerActivity extends Activity {
+public class BannerActivity extends BaseActivity {
     static final String TAG = "BannerActivityTAG";
     FrameLayout frameLayout;
     AdRequest adRequest;
@@ -27,14 +27,14 @@ public class BannerActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(GlobalConfig.RConfig.BANNER_ACTIVITY_LAYOUT_ID);
+        setContentLayoutView(GlobalConfig.RConfig.BANNER_ACTIVITY_LAYOUT_ID);
         frameLayout = findViewById(GlobalConfig.RConfig.BANNER_ACTIVITY_AD_CONTAINER);
         loadOnlyView = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_LOAD_ONLY_ID);
         btnShow = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_SHOW_ID);
         btnShow.setEnabled(false);
         LogControl.i(TAG, "frameLayout = " + frameLayout);
-
-
+        setTitle("横幅广告");
+        showEditLayout();
     }
 
     public void onClick(View view){
@@ -55,7 +55,7 @@ public class BannerActivity extends Activity {
     }
 
     private void loadAd(){
-
+        showProgress();
         adRequest = new AdRequest.Builder(this)
                 .setCodeId(getIntent().getStringExtra("codid"))
                 .setAdContainer(frameLayout)
@@ -66,13 +66,15 @@ public class BannerActivity extends Activity {
             @Override
             public void onAdLoaded(AdController adController) {
                 LogControl.i(TAG, "onAdLoaded enter");
+
                 mAdController = adController;
                 if (isLoadOnly) {
                     btnShow.setEnabled(true);
                 } else {
                     mAdController.show();
                 }
-
+                invisibleProgress();
+                loadSuccess();
             }
 
             @Override
@@ -93,6 +95,7 @@ public class BannerActivity extends Activity {
             @Override
             public void onAdExposure() {
                 LogControl.i(TAG, "onAdExposure enter");
+                exposureSuccess();
             }
 
             @Override

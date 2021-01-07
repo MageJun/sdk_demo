@@ -2,8 +2,7 @@ package com.adsdk.demo;
 
 import android.support.multidex.MultiDexApplication;
 
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.SdkConfiguration;
+import com.adsdk.demo.pkg.sdk.client.AdClientContext;
 
 /**
  * ----------开始对接前，请务必阅读一下注意事项----------
@@ -28,9 +27,7 @@ public class DemoApplication extends MultiDexApplication {
         //请求广告不需要单独放到线程中去执行，内部是非阻塞实现;
 
         //只能在主进程中初始化 不支持多进程
-        AdRequest.init(this, new SdkConfiguration.Builder()
-                .setAppName("test")
-                .build());
+        AdClientContext.init(this,"testoaid");
 
     }
 }

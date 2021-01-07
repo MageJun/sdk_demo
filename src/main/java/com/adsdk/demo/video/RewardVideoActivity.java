@@ -2,7 +2,6 @@ package com.adsdk.demo.video;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -10,13 +9,14 @@ import android.widget.FrameLayout;
 
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
+import com.adsdk.demo.common.BaseActivity;
 import com.adsdk.demo.common.LogControl;
 import com.adsdk.demo.pkg.sdk.client.AdController;
 import com.adsdk.demo.pkg.sdk.client.AdError;
 import com.adsdk.demo.pkg.sdk.client.AdRequest;
 import com.adsdk.demo.pkg.sdk.client.video.RewardVideoAdListener2;
 
-public class RewardVideoActivity extends AppCompatActivity {
+public class RewardVideoActivity extends BaseActivity {
 
     static String TAG = "Reward_TAG";
 
@@ -30,6 +30,9 @@ public class RewardVideoActivity extends AppCompatActivity {
         setContentView(GlobalConfig.RConfig.REWARD_VIDEO_ACTIVITY_LAYOUT_ID);
         btnShow = findViewById(R.id.btn_show);
         btnShow.setEnabled(false);
+        showEditLayout();
+        setTitle("激励视频广告");
+
     }
     public void onClick(View view){
         switch (view.getId()) {
@@ -47,7 +50,7 @@ public class RewardVideoActivity extends AppCompatActivity {
     }
 
     private void loadAd(boolean loadOnly) {
-
+        showProgress();
         adRequest = new AdRequest.Builder(this)
                 .setCodeId(getIntent().getStringExtra("codid"))
                 .setRewardName("金币")
@@ -86,6 +89,9 @@ public class RewardVideoActivity extends AppCompatActivity {
                 LogControl.i(TAG, "onAdLoaded enter");
                 adController = adcontroller;
                 btnShow.setEnabled(true);
+                invisibleEditLayout();
+                invisibleProgress();
+                loadSuccess();
             }
 
             @Override
@@ -107,6 +113,7 @@ public class RewardVideoActivity extends AppCompatActivity {
             @Override
             public void onAdExposure() {
                 LogControl.i(TAG, "onAdExposure enter");
+                exposureSuccess();
             }
 
             @Override

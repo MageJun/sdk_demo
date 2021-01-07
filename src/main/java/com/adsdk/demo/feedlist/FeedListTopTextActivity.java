@@ -1,6 +1,5 @@
 package com.adsdk.demo.feedlist;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -20,6 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.adsdk.demo.R;
+import com.adsdk.demo.common.BaseActivity;
 import com.adsdk.demo.pkg.sdk.client.AdError;
 import com.adsdk.demo.pkg.sdk.client.AdRequest;
 import com.adsdk.demo.pkg.sdk.client.NativeAdData;
@@ -43,7 +43,7 @@ import java.util.TreeSet;
  *
  * @see FeedListVideoDevContainerRenderActivity
  */
-public class FeedListTopTextActivity extends Activity implements AbsListView.OnScrollListener {
+public class FeedListTopTextActivity extends BaseActivity implements AbsListView.OnScrollListener {
 
     private static final String TAG = FeedListTopTextActivity.class.getSimpleName();
     private CustomAdapter mAdapter;
@@ -63,18 +63,22 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
     private int mTotalItemCount = 0;
     private boolean mIsLoading = true;
     private AdRequest adRequest;
+    private ListView listView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feedlist_native_ad_listview);
+        setContentLayoutView(R.layout.activity_feedlist_native_ad_listview);
         initView();
-        requestData();
-        requestData();
+    }
+
+    @Override
+    protected void onBaseBtnClick() {
         requestData();
     }
 
     private void requestData() {
+        showProgress();
         VideoSettings videoSettings = new VideoSettings.Builder()
                 .setAutoPlayMuted(true)
                 .setNeedProgressBar(false)
@@ -161,7 +165,11 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
     }
 
     private void initView() {
-        ListView listView = findViewById(R.id.listview);
+        setTitle("信息流广告");
+        showEditLayout();
+        showBaseBtn();
+        listView = findViewById(R.id.listview);
+        listView.setVisibility(View.INVISIBLE);
         List<NormalItem> list = new ArrayList<>();
         for (int i = 0; i < 3; ++i) {
             list.add(new NormalItem("No." + i + " Init Data"));
@@ -180,6 +188,10 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
             Message msg = mHandler.obtainMessage(MSG_REFRESH_LIST, ads);
             mHandler.sendMessage(msg);
         }
+        listView.setVisibility(View.VISIBLE);
+        invisibleEditLayout();
+        invisibleProgress();
+        loadSuccess();
     }
 
     public void onNoAD(com.adsdk.demo.pkg.sdk.client.AdError error) {
@@ -317,6 +329,7 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
                     @Override
                     public void onADExposed() {
                         Log.i(TAG, "onADExposed enter");
+                        exposureSuccess();
                     }
 
                     @Override
