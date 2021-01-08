@@ -16,14 +16,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.adsdk.demo.GlobalConfig;
-import com.adsdk.demo.MainActivity;
 import com.adsdk.demo.R;
 import com.adsdk.demo.common.DevMainActivity;
 import com.adsdk.demo.common.LogControl;
-import com.adsdk.demo.pkg.sdk.client.AdController;
-import com.adsdk.demo.pkg.sdk.client.AdError;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.splash.SplashAdExtListener;
+import com.analytics.sdk.client.AdController;
+import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.splash.SplashAdExtListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +108,7 @@ public class SplashActivity extends Activity {
         if(isLoadOnly){
             //广告加载和展示分离
             //必传 任意一个Activity都可以
-            adRequest = new AdRequest.Builder(MainActivity.MAIN_INSTANCE)
+            adRequest = new AdRequest.Builder(this)
                     //必传 广告位ID
                     .setCodeId(getIntent().getStringExtra("codid"))
                     //请求时可以不传广告容器，展示时传递即可

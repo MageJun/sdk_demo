@@ -20,10 +20,10 @@ import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
 import com.adsdk.demo.common.DevMainActivity;
 import com.adsdk.demo.common.LogControl;
-import com.adsdk.demo.pkg.sdk.client.AdController;
-import com.adsdk.demo.pkg.sdk.client.AdError;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.splash.SplashAdExtListener;
+import com.analytics.sdk.client.AdController;
+import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.splash.SplashAdExtListener;
 
 import java.util.ArrayList;
 import java.util.List;

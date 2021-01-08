@@ -19,11 +19,11 @@ import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
 import com.adsdk.demo.common.LogControl;
 import com.adsdk.demo.common.RecyclerViewMoreUtil;
-import com.adsdk.demo.pkg.sdk.client.AdError;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.NativeAdData;
-import com.adsdk.demo.pkg.sdk.client.NativeAdListener;
-import com.adsdk.demo.pkg.sdk.client.feedlist.FeedListNativeAdListener;
+import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.NativeAdData;
+import com.analytics.sdk.client.NativeAdListener;
+import com.analytics.sdk.client.feedlist.FeedListNativeAdListener;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.BitmapAjaxCallback;
@@ -142,7 +142,7 @@ public class FeedListNativeRecylerViewImplActivity extends Activity implements R
             }
 
             @Override
-            public void onAdError(com.adsdk.demo.pkg.sdk.client.AdError adError) {
+            public void onAdError(com.analytics.sdk.client.AdError adError) {
                 Log.i(TAG, "onAdError enter , adError = " + adError);
             }
         });
@@ -331,7 +331,7 @@ public class FeedListNativeRecylerViewImplActivity extends Activity implements R
                 }
 
                 @Override
-                public void onAdError(com.adsdk.demo.pkg.sdk.client.AdError adError) {
+                public void onAdError(com.analytics.sdk.client.AdError adError) {
                     Log.i(TAG, "onADError enter , error = " + adError);
                 }
 

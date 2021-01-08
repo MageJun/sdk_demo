@@ -8,10 +8,10 @@ import android.widget.Button;
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.R;
 import com.adsdk.demo.common.LogControl;
-import com.adsdk.demo.pkg.sdk.client.AdController;
-import com.adsdk.demo.pkg.sdk.client.AdError;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.video.FullScreenVideoAdListenerExt;
+import com.analytics.sdk.client.AdController;
+import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.video.FullScreenVideoAdListenerExt;
 
 public class FullScreenVideoActivity extends AppCompatActivity {
 

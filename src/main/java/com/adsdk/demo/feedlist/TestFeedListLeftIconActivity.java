@@ -17,12 +17,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.adsdk.demo.R;
-import com.adsdk.demo.pkg.sdk.client.AdError;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.NativeAdData;
-import com.adsdk.demo.pkg.sdk.client.NativeAdListener;
-import com.adsdk.demo.pkg.sdk.client.feedlist.FeedListNativeAdListener;
-import com.adsdk.demo.pkg.sdk.client.s.SIPLInterface_3;
+import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.NativeAdData;
+import com.analytics.sdk.client.NativeAdListener;
+import com.analytics.sdk.client.feedlist.FeedListNativeAdListener;
+import com.analytics.sdk.client.s.SIPLInterface_3;
 import com.androidquery.AQuery;
 
 import java.util.ArrayList;

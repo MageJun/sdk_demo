@@ -24,10 +24,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.adsdk.demo.R;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.NativeAdData;
-import com.adsdk.demo.pkg.sdk.client.NativeAdListener;
-import com.adsdk.demo.pkg.sdk.client.feedlist.FeedListNativeAdListener;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.NativeAdData;
+import com.analytics.sdk.client.NativeAdListener;
+import com.analytics.sdk.client.feedlist.FeedListNativeAdListener;
 import com.androidquery.AQuery;
 import com.androidquery.callback.AjaxStatus;
 import com.androidquery.callback.BitmapAjaxCallback;
@@ -96,7 +96,7 @@ public class FeedListBigIconActivity extends Activity implements AbsListView.OnS
             }
 
             @Override
-            public void onAdError(com.adsdk.demo.pkg.sdk.client.AdError adError) {
+            public void onAdError(com.analytics.sdk.client.AdError adError) {
                 onNoAD(adError);
             }
         });
@@ -152,7 +152,7 @@ public class FeedListBigIconActivity extends Activity implements AbsListView.OnS
         }
     }
 
-    public void onNoAD(com.adsdk.demo.pkg.sdk.client.AdError error) {
+    public void onNoAD(com.analytics.sdk.client.AdError error) {
         mIsLoading = false;
     }
 
@@ -277,7 +277,7 @@ public class FeedListBigIconActivity extends Activity implements AbsListView.OnS
                     }
 
                     @Override
-                    public void onAdError(com.adsdk.demo.pkg.sdk.client.AdError adError) {
+                    public void onAdError(com.analytics.sdk.client.AdError adError) {
                         Log.i(TAG,"onADError enter , error = " + adError);
                     }
 

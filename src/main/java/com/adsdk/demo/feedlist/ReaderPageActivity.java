@@ -12,12 +12,12 @@ import android.widget.TextView;
 import com.adsdk.demo.GlobalConfig;
 import com.adsdk.demo.common.LogControl;
 import com.adsdk.demo.common.RecyclerViewMoreUtil;
-import com.adsdk.demo.pkg.sdk.client.AdError;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.feedlist.AdSize;
-import com.adsdk.demo.pkg.sdk.client.feedlist.AdView;
-import com.adsdk.demo.pkg.sdk.client.feedlist.FeedListAdListener;
-import com.adsdk.demo.pkg.sdk.client.s.SIPLInterface_3;
+import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.feedlist.AdSize;
+import com.analytics.sdk.client.feedlist.AdView;
+import com.analytics.sdk.client.feedlist.FeedListAdListener;
+import com.analytics.sdk.client.s.SIPLInterface_3;
 
 import java.util.ArrayList;
 import java.util.HashMap;

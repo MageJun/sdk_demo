@@ -9,13 +9,13 @@ import android.widget.FrameLayout;
 
 import com.adsdk.demo.common.LogControl;
 import com.adsdk.demo.R;
-import com.adsdk.demo.pkg.sdk.client.AdError;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
-import com.adsdk.demo.pkg.sdk.client.LayoutStyle;
-import com.adsdk.demo.pkg.sdk.client.ViewStyle;
-import com.adsdk.demo.pkg.sdk.client.feedlist.AdSize;
-import com.adsdk.demo.pkg.sdk.client.feedlist.AdView;
-import com.adsdk.demo.pkg.sdk.client.feedlist.FeedListAdListener;
+import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdRequest;
+import com.analytics.sdk.client.LayoutStyle;
+import com.analytics.sdk.client.ViewStyle;
+import com.analytics.sdk.client.feedlist.AdSize;
+import com.analytics.sdk.client.feedlist.AdView;
+import com.analytics.sdk.client.feedlist.FeedListAdListener;
 
 import java.util.List;
 

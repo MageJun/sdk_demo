@@ -24,7 +24,7 @@ import com.adsdk.demo.feedlist.FeedListActivity;
 import com.adsdk.demo.feedlist.FeedListTopTextActivity;
 import com.adsdk.demo.feedlist.FeedListVideoDevContainerRenderActivity;
 import com.adsdk.demo.interstitial.InterstitialActivity;
-import com.adsdk.demo.pkg.sdk.client.AdRequest;
+import com.analytics.sdk.client.AdRequest;
 import com.adsdk.demo.splash.SplashActivity;
 import com.adsdk.demo.splash.SplashSkipViewActivity;
 import com.adsdk.demo.video.FullScreenVideoActivity;
