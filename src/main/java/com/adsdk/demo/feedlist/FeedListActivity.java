@@ -147,7 +147,6 @@ public class FeedListActivity extends Activity implements FeedListAdListener, Re
 
     @Override
     public void onAdLoaded(final List<AdView> adList) {
-        LogControl.i(TAG,"onAdLoaded enter , list size = " + adList);
         mAdViewList = adList;
         LogControl.i(TAG,"onAdLoaded enter , size = "+mAdViewList.size());
         for (int i = 0; i < mAdViewList.size(); i++) {

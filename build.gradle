@@ -1,10 +1,16 @@
 apply plugin: 'com.android.application'
 
+ext{
+    HWLite = "13.4.36.301"
+    HWConsent = "3.4.36.301"
+}
+
 buildscript {
 
     repositories {
         google()
         jcenter()
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
@@ -14,8 +20,10 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'https://developer.huawei.com/repo/' }
         maven { url "https://jitpack.io" }
     }
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -72,13 +80,19 @@ dependencies {
 
     //以下依赖根据需求添加 例如：你们只需要广点通的广告 只需要添加广点通的aar即可
     //快手
-//    implementation files('thrid_sdk_libs/ks_adsdk-3.3.8.aar')
+    implementation files('thrid_sdk_libs/ks_adsdk-3.3.8.aar')
     //穿山甲
-//    implementation files('thrid_sdk_libs/ks_adsdk-3.3.0.3aar')
+    implementation files('thrid_sdk_libs/open_ad_sdk_3.3.0.3.aar')
     //百度
-//    implementation files('thrid_sdk_libs/baidu_ad_sdk_v595.aar')
+    implementation files('thrid_sdk_libs/baidu_ad_sdk_v595.aar')
+
+    //华为
+    implementation "com.huawei.hms:ads-lite:$HWLite"
+    implementation "com.huawei.hms:ads-consent:$HWConsent"
+
     //广点通
-    implementation files('thrid_sdk_libs/GDTSDK.unionNormal.4.232.1102.aar')
+    implementation files('thrid_sdk_libs/GDTSDK.gxb_unionNoPlugin.4.253.1123.aar')
+
 
     //demo 聚合SDK
     implementation files('libs/juhe_ad_sdk_l_v64_demo.aar')

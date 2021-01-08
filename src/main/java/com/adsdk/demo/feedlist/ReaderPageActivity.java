@@ -111,19 +111,14 @@ public class ReaderPageActivity extends FragmentActivity implements FeedListAdLi
 
     @Override
     public void onAdLoaded(final List<AdView> adList) {
-        LogControl.i(TAG,"onAdLoaded enter , list size = " + adList);
         mAdViewList = adList;
         LogControl.i(TAG,"onAdLoaded enter , size = "+mAdViewList.size());
         for (int i = 0; i < mAdViewList.size(); i++) {
 
-            LogControl.i(TAG,"onAdLoaded x enter , size = "+mAdViewList.size());
 
             int position = FIRST_AD_POSITION + ITEMS_PER_AD * i;
 
-            LogControl.i(TAG,"onAdLoaded enter position = " + position + ", mNormalDataList.size() = " + mNormalDataList.size());
-
             if (position < mNormalDataList.size()) {
-                LogControl.i(TAG,"onAdLoaded enter addADViewToPosition , i = " + i + " , mAdViewList.size = " + mAdViewList.size());
                 AdView view = mAdViewList.get(i);
 
                 mAdViewPositionMap.put(view, position); // 把每个广告在列表中位置记录下来

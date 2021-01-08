@@ -160,7 +160,6 @@ public class FeedListNativeRecylerViewImplActivity extends Activity implements R
     }
 
     public void onAdLoadCompleted(final List<NativeAdData> adList) {
-        LogControl.i(TAG, "onAdLoaded enter , list size = " + adList);
         mAdViewList = adList;
         LogControl.i(TAG, "onAdLoaded enter , size = " + mAdViewList.size());
         for (int i = 0; i < mAdViewList.size(); i++) {

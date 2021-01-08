@@ -1,5 +1,6 @@
 package com.adsdk.demo;
 
+import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
 import com.analytics.sdk.client.AdRequest;
@@ -19,11 +20,15 @@ import com.analytics.sdk.client.SdkConfiguration;
  *
  */
 public class DemoApplication extends MultiDexApplication {
+    private static Context sContext ;
 
+    public static Context getAppContext(){
+        return sContext;
+    }
     @Override
     public void onCreate() {
         super.onCreate();
-
+        sContext = this;
         //demo中 我们所有的请求已经做过线程优化处理 请勿在子线程中请求
         //请求广告不需要单独放到线程中去执行，内部是非阻塞实现;
 

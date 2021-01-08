@@ -36,7 +36,7 @@ public final class GlobalConfig {
          * @see com.adsdk.demo.splash.SplashActivity
          * @see com.adsdk.demo.splash.SplashSkipViewActivity
          */
-        String SPLASH = "D2110001,D1960006,D1960008,D2330012";
+        String SPLASH = "D2110001,D1960006,D1960008,D2330012,D2110018,D2330015";
         /**
          * 自渲染信息流
          *
@@ -47,38 +47,38 @@ public final class GlobalConfig {
          * D2110016 穿山甲
          *
          */
-        String FEED_LIST_NATIVE = "D2110010,D1960007,D1960009,D2110016,D2110015,D2110014";
+        String FEED_LIST_NATIVE = "D2110010,D1960007,D1960009,D2110016,D2330016,D2330005,D2330002";
         /**
          * 自渲染信息流(视频)
          *
          * @see com.adsdk.demo.feedlist.FeedListVideoDevContainerRenderActivity 信息流视频
          */
-        String FEED_LIST_NATIVE_VIDEO = "D2110002,D2110016";
+        String FEED_LIST_NATIVE_VIDEO = "D2110002,D2110016,D2330008,D2330016";
 
         /**
          * 全屏视频
          *
          * @see com.adsdk.demo.video.FullScreenVideoActivity
          */
-        String FULLSCREEN_VIDEO = "D2110005";
+        String FULLSCREEN_VIDEO = "D2110005,D1080054,D2330009";
         /**
          * 激励视频
          *
          * @see com.adsdk.demo.video.RewardVideoActivity
          */
-        String VIDEO = "D2110004,D2120009";
+        String VIDEO = "D2110004,D2120009,D2330007";
         /*
          * 插屏 （图视频混合，视频）
          */
-        String INTERSTITIAL = "D2110003,D2110006";
+        String INTERSTITIAL = "D2110003,D2110006,D2330014";
         /*
          * 模版信息流
          */
-        String FEED_LIST = "D2110007,D2110015,D2110014";
+        String FEED_LIST = "D2110007,D2110026,D2110024";
         /*
          * 横幅
          */
-        String BANNER = "D2110023";
+        String BANNER = "D2110023"/*,D2330013,D2330011,D2330017"*/;
 
     }
 
