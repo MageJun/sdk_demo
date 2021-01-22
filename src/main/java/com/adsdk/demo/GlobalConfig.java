@@ -22,6 +22,17 @@ package com.adsdk.demo;
  */
 public final class GlobalConfig {
 
+
+    /**
+     * SharedPreferences name.
+     */
+   public static final  String SP_NAME = "DemoAdsSdkSharedPreferences";
+
+    /**
+     * The SP key of protocol.
+     */
+    public static final String SP_PROTOCOL_KEY = "protocol";
+
     /**
      * 在这里添加 你们的 广告位 id 可以直接测试
      * 注意记得要 同步修改 gradle#applicationId 改成你们的包名
@@ -30,13 +41,14 @@ public final class GlobalConfig {
      * 是通用广告位 不验证包名
      */
     public interface ChannelId {
+
         /**
          * 开屏
          *
          * @see com.adsdk.demo.splash.SplashActivity
          * @see com.adsdk.demo.splash.SplashSkipViewActivity
          */
-        String SPLASH = "D2110001,D1960006,D1960008,D2330012,D2110018,D2330015";
+        String SPLASH = /*D2110001,D1960006,D1960008,D2330012,D2110018,*/"D2330020";
         /**
          * 自渲染信息流
          *
@@ -47,13 +59,13 @@ public final class GlobalConfig {
          * D2110016 穿山甲
          *
          */
-        String FEED_LIST_NATIVE = "D2110010,D1960007,D1960009,D2110016,D2330016,D2330005,D2330002";
+        String FEED_LIST_NATIVE = /*"D2110010,D1960007,D1960009,D2110016,D2330016,D2330005,D2330002"*/"D2330018";
         /**
          * 自渲染信息流(视频)
          *
          * @see com.adsdk.demo.feedlist.FeedListVideoDevContainerRenderActivity 信息流视频
          */
-        String FEED_LIST_NATIVE_VIDEO = "D2110002,D2110016,D2330008,D2330016";
+        String FEED_LIST_NATIVE_VIDEO = /*"D2110002,D2110016,D2330008,D2330016"*/"D2330016";
 
         /**
          * 全屏视频
@@ -78,7 +90,7 @@ public final class GlobalConfig {
         /*
          * 横幅
          */
-        String BANNER = "D2110023"/*,D2330013,D2330011,D2330017"*/;
+        String BANNER = "D2330019"/*,D2330013,D2330011,D2330017"*/;
 
     }
 

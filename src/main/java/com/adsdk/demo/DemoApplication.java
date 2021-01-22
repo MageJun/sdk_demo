@@ -2,9 +2,11 @@ package com.adsdk.demo;
 
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;
+import android.util.Log;
 
 import com.analytics.sdk.client.AdRequest;
 import com.analytics.sdk.client.SdkConfiguration;
+import com.huawei.openalliance.ad.inter.HiAd;
 
 /**
  * ----------开始对接前，请务必阅读一下注意事项----------
@@ -36,6 +38,7 @@ public class DemoApplication extends MultiDexApplication {
         AdRequest.init(this, new SdkConfiguration.Builder()
                 .setAppName("test")
                 .build());
+        HiAd.getInstance(this).initLog(true, Log.INFO);
 
     }
 }

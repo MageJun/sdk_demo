@@ -72,7 +72,7 @@
 
 
         <!-- 广点通 -->
-        <provider
+       <!-- <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
@@ -82,10 +82,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/gdt_file_path"
                 tools:replace="name,resource" />
-        </provider>
+        </provider>-->
 
         <!-- 百度 相关的配置 -->
-        <activity
+        <!--<activity
             android:name="com.baidu.mobads.production.rewardvideo.MobRewardVideoActivity"
             android:configChanges="screenSize|orientation|keyboardHidden"
             android:launchMode="singleTask"
@@ -107,9 +107,9 @@
             android:configChanges="screenSize|keyboard|keyboardHidden|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".feedlist.TestFeedListTemplateActivity" />
-
+-->
         <!--  👇 👇  CSJ 相关的配置  👇 👇   -->
-        <provider
+       <!-- <provider
             android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
             android:authorities="${applicationId}.TTFileProvider"
             android:exported="false"
@@ -122,7 +122,7 @@
         <provider
             android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
             android:authorities="${applicationId}.TTMultiProvider"
-            android:exported="false" />
+            android:exported="false" />-->
         <!--  👆 👆   CSJ 相关的配置  👆  👆    -->
     </application>
 

@@ -2,7 +2,9 @@ package com.adsdk.demo;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -20,16 +22,11 @@ import android.widget.TextView;
 
 import com.adsdk.demo.banner.BannerActivity;
 import com.adsdk.demo.common.GridViewConfig;
-import com.adsdk.demo.feedlist.FeedListActivity;
+import com.adsdk.demo.common.ProtocolDialog;
 import com.adsdk.demo.feedlist.FeedListTopTextActivity;
-import com.adsdk.demo.feedlist.FeedListVideoDevContainerRenderActivity;
-import com.adsdk.demo.interstitial.InterstitialActivity;
-import com.analytics.sdk.client.AdRequest;
+import com.adsdk.demo.feedlist.FeedListVideoActivity;
 import com.adsdk.demo.splash.SplashActivity;
-import com.adsdk.demo.splash.SplashSkipViewActivity;
-import com.adsdk.demo.video.FullScreenVideoActivity;
-import com.adsdk.demo.video.RewardVideoActivity;
-import com.qq.e.comm.managers.status.SDKStatus;
+import com.huawei.openalliance.ad.inter.HiAd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,21 +64,21 @@ public class MainActivity extends Activity {
     }
 
     private void setInfos() {
-        TextView textView = findViewById(R.id.info);
-        String packageName = getPackageName();
-        String versionName = null;
-        String gdtSdkVersion = SDKStatus.getIntegrationSDKVersion();
-        try {
-            versionName = getPackageManager().getPackageInfo(packageName, 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        textView.setText(
-                "聚合广告SDK \n" +
-                        "注：version:  " + AdRequest.getSdkVersion() + "\n" +
-                        "意：PackageName : " + packageName + "\n" +
-                        "核：VersionName : " + versionName + "\n" +
-                        "对：GDTSdkVersion:" + gdtSdkVersion);
+//        TextView textView = findViewById(R.id.info);
+//        String packageName = getPackageName();
+//        String versionName = null;
+//        String gdtSdkVersion = SDKStatus.getIntegrationSDKVersion();
+//        try {
+//            versionName = getPackageManager().getPackageInfo(packageName, 0).versionName;
+//        } catch (PackageManager.NameNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        textView.setText(
+//                "聚合广告SDK \n" +
+//                        "注：version:  " + AdRequest.getSdkVersion() + "\n" +
+//                        "意：PackageName : " + packageName + "\n" +
+//                        "核：VersionName : " + versionName + "\n" +
+//                        "对：GDTSdkVersion:" + gdtSdkVersion);
     }
 
 
@@ -124,14 +121,14 @@ public class MainActivity extends Activity {
 //
 //            }
 //        }));
-        list.add(new GridViewConfig("开屏自定义跳过", GlobalConfig.ChannelId.SPLASH, SplashSkipViewActivity.class));
-        list.add(new GridViewConfig("信息流模版演示", GlobalConfig.ChannelId.FEED_LIST, FeedListActivity.class));
+//        list.add(new GridViewConfig("开屏自定义跳过", GlobalConfig.ChannelId.SPLASH, SplashSkipViewActivity.class));
+//        list.add(new GridViewConfig("信息流模版演示", GlobalConfig.ChannelId.FEED_LIST, FeedListActivity.class));
         list.add(new GridViewConfig("信息流自渲染演示", GlobalConfig.ChannelId.FEED_LIST_NATIVE, FeedListTopTextActivity.class));
-        list.add(new GridViewConfig("信息流自渲染视频(开发者定义封面)", GlobalConfig.ChannelId.FEED_LIST_NATIVE_VIDEO, FeedListVideoDevContainerRenderActivity.class));
+        list.add(new GridViewConfig("信息流自渲染视频", GlobalConfig.ChannelId.FEED_LIST_NATIVE_VIDEO, FeedListVideoActivity.class));
         list.add(new GridViewConfig("横幅演示", GlobalConfig.ChannelId.BANNER, BannerActivity.class));
-        list.add(new GridViewConfig("插屏演示", GlobalConfig.ChannelId.INTERSTITIAL, InterstitialActivity.class));
-        list.add(new GridViewConfig("激励视频演示", GlobalConfig.ChannelId.VIDEO, RewardVideoActivity.class));
-        list.add(new GridViewConfig("全屏视频演示", GlobalConfig.ChannelId.FULLSCREEN_VIDEO, FullScreenVideoActivity.class));
+//        list.add(new GridViewConfig("插屏演示", GlobalConfig.ChannelId.INTERSTITIAL, InterstitialActivity.class));
+//        list.add(new GridViewConfig("激励视频演示", GlobalConfig.ChannelId.VIDEO, RewardVideoActivity.class));
+//        list.add(new GridViewConfig("全屏视频演示", GlobalConfig.ChannelId.FULLSCREEN_VIDEO, FullScreenVideoActivity.class));
         GridAdapter gridAdapter = new GridAdapter();
         gridAdapter.addList(list);
         gridView.setAdapter(gridAdapter);
@@ -166,39 +163,47 @@ public class MainActivity extends Activity {
             String adId = list.get(i).getCodeid().equals("") ? "无" : list.get(i).getCodeid();
             final String[] adIdArray = adId.split(",");
             codid.setText(adIdArray[0]);
+            codid.setVisibility(View.GONE);
             if (list.get(i).viewClickListener != null) {
                 inflate.setOnClickListener(list.get(i).viewClickListener);
             } else {
                 inflate.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        if (adIdArray.length > 1) {
-                            LinearLayout inflate1 = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_item_popwin, null);
-                            final PopupWindow popupWindow = new PopupWindow(viewGroup.getContext());
-                            popupWindow.setFocusable(true);
-                            popupWindow.setContentView(inflate1);
-                            for (final String s1 : adIdArray) {
-                                Button button = new Button(viewGroup.getContext());
-                                button.setText(s1);
-                                button.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Intent intent = new Intent(viewGroup.getContext(), list.get(i).getActivity());
-                                        intent.putExtra("codid", s1);
-                                        viewGroup.getContext().startActivity(intent);
-                                        popupWindow.dismiss();
+                    public void onClick(final View view) {
+                        showPrivacyDialog(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                HiAd.getInstance(MAIN_INSTANCE).enableUserInfo(true);
+                                if (adIdArray.length > 1) {
+                                    LinearLayout inflate1 = (LinearLayout) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.activity_item_popwin, null);
+                                    final PopupWindow popupWindow = new PopupWindow(viewGroup.getContext());
+                                    popupWindow.setFocusable(true);
+                                    popupWindow.setContentView(inflate1);
+                                    for (final String s1 : adIdArray) {
+                                        Button button = new Button(viewGroup.getContext());
+                                        button.setText(s1);
+                                        button.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                Intent intent = new Intent(viewGroup.getContext(), list.get(i).getActivity());
+                                                intent.putExtra("codid", s1);
+                                                viewGroup.getContext().startActivity(intent);
+                                                popupWindow.dismiss();
+                                            }
+                                        });
+                                        inflate1.addView(button);
                                     }
-                                });
-                                inflate1.addView(button);
+                                    popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                                    popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+                                    popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+                                } else {
+                                    Intent intent = new Intent(viewGroup.getContext(), list.get(i).getActivity());
+                                    intent.putExtra("codid", adIdArray[0]);
+                                    viewGroup.getContext().startActivity(intent);
+                                }
                             }
-                            popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-                            popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                            popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
-                        } else {
-                            Intent intent = new Intent(viewGroup.getContext(), list.get(i).getActivity());
-                            intent.putExtra("codid", adIdArray[0]);
-                            viewGroup.getContext().startActivity(intent);
-                        }
+                        });
+
                     }
                 });
             }
@@ -210,5 +215,35 @@ public class MainActivity extends Activity {
             this.list.addAll(list);
             notifyDataSetChanged();
         }
+    }
+
+    /**
+     * Display the app privacy protocol dialog box.
+     */
+    public static void showPrivacyDialog(final View.OnClickListener onClickListener) {
+        if (getPreferences(GlobalConfig.SP_PROTOCOL_KEY, 0) == 0) {
+            ProtocolDialog dialog = new ProtocolDialog(MAIN_INSTANCE);
+            dialog.setCallback(new ProtocolDialog.ProtocolDialogCallback() {
+                @Override
+                public void agree() {
+                    onClickListener.onClick(null);
+                }
+
+                @Override
+                public void cancel() {
+                    // if the user selects the CANCEL button, exit application.
+                }
+            });
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.show();
+        }else{
+            onClickListener.onClick(null);
+        }
+    }
+
+    private static int getPreferences(String key, int defValue) {
+        SharedPreferences preferences = DemoApplication.getAppContext().getSharedPreferences(GlobalConfig.SP_NAME, Context.MODE_PRIVATE);
+        int value = preferences.getInt(key, defValue);
+        return value;
     }
 }

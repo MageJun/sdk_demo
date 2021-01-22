@@ -11,4 +11,11 @@
         <item name="android:windowBackground">@color/jhsdk_text_white</item>
     </style>
 
+
+    <!-- Custom Dialog Style -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:colorForeground">#fff</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>

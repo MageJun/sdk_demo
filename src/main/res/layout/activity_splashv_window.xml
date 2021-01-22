@@ -18,7 +18,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gdt_ic_exit_fullscreen"
+        android:background="@drawable/jhsdk_ad_logo"
         />
 
 </LinearLayout>

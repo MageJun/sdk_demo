@@ -33,8 +33,8 @@ public class BannerActivity extends Activity {
         btnShow = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_SHOW_ID);
         btnShow.setEnabled(false);
         LogControl.i(TAG, "frameLayout = " + frameLayout);
-
-
+        loadOnlyView.setVisibility(View.GONE);
+        loadAd();
     }
 
     public void onClick(View view){

@@ -24,6 +24,7 @@ import android.widget.TextView;
 
 import com.adsdk.demo.R;
 import com.analytics.sdk.client.AdError;
+import com.analytics.sdk.client.AdExtras;
 import com.analytics.sdk.client.AdLoadListener;
 import com.analytics.sdk.client.AdRequest;
 import com.analytics.sdk.client.NativeAdData;
@@ -286,7 +287,10 @@ public class FeedListVideoActivity extends Activity implements AbsListView.OnScr
                 clickableViews.add(holder.poster);
                 clickableViews.add(holder.desc);
                 FrameLayout.LayoutParams fl = new FrameLayout.LayoutParams(0,0);
-
+                String adSource = ad.getAdExtras().getStringExtra(AdExtras.EXTRA_AD_SOURCE,"");
+                if(!TextUtils.isEmpty(adSource)){
+                    holder.desc.setText("广告源: "+adSource);
+                }
                 ad.attach(FeedListVideoActivity.this);
 
                 View result = ad.bindView(convertView, null,fl,clickableViews, new NativeAdListener() {

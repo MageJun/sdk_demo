@@ -52,7 +52,8 @@ public class SplashActivity extends Activity {
         loadOnlyView = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_LOAD_ONLY_ID);
         btnShow = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_SHOW_ID);
         btnShow.setEnabled(false);
-        loadOnlyView.setVisibility(View.VISIBLE);
+//        loadOnlyView.setVisibility(View.VISIBLE);
+        loadAds();
     }
 
 
@@ -127,6 +128,7 @@ public class SplashActivity extends Activity {
                     .setCodeId(getIntent().getStringExtra("codid"))
                     //必传 展示广告的大容器
                     .setAdContainer(linearLayout)
+                    .appendParameter(AdRequest.Parameters.KEY_SPLASH_SLOGN_RID,R.drawable.demo_slogan)
                     // 跳过时间默认5秒 如需修改 控制台配置
                     // 超时时间自己处理
                     .build();
@@ -193,6 +195,7 @@ public class SplashActivity extends Activity {
                         4、请求太频繁、停一会儿再操作
                         5、新买的测试机而且没有手机卡 大概率获取不到广告的
                  */
+            next();
         }
 
         @Override

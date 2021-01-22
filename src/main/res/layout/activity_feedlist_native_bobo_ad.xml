@@ -12,7 +12,6 @@
         android:background="#fdfbfb">
         <!-- 原生广告的小图 -->
 
-
         <ImageView
             android:id="@+id/img_logo"
             android:layout_width="55dp"
@@ -52,7 +51,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:text="TextView"
-            android:textColor="#f1fcfe"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:translationZ="10dp"
             app:layout_constraintEnd_toEndOf="@+id/img_poster"
