@@ -95,7 +95,7 @@ dependencies {
 
 
     //demo 聚合SDK
-    implementation files('libs/juhe_ad_sdk_l_v64_demo.aar')
+    implementation files('libs/juhe_ad_sdk_l_v80_demo.aar')
 
 
 }
