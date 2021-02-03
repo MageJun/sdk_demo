@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="应用信息"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"/>
+
+        <ImageView
+            android:id="@+id/close_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/jhsdk_ad_close2"/>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        <com.analytics.sdk.common.view.ProgressWebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+
+    </ScrollView>-->
+
+    <Button
+        android:id="@+id/btn_down"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="3dp"
+        android:paddingLeft="10dp"
+        android:text="立即下载"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:background="@drawable/jhsdk_shap_download_bg"/>
+</LinearLayout>

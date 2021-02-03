@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.adsdk.demo.banner.BannerActivity;
 import com.adsdk.demo.common.GridViewConfig;
+import com.adsdk.demo.common.PopuWindowHelper;
 import com.adsdk.demo.feedlist.FeedListActivity;
 import com.adsdk.demo.feedlist.FeedListTopTextActivity;
 import com.adsdk.demo.feedlist.FeedListVideoDevContainerRenderActivity;
@@ -132,6 +133,12 @@ public class MainActivity extends Activity {
         list.add(new GridViewConfig("插屏演示", GlobalConfig.ChannelId.INTERSTITIAL, InterstitialActivity.class));
         list.add(new GridViewConfig("激励视频演示", GlobalConfig.ChannelId.VIDEO, RewardVideoActivity.class));
         list.add(new GridViewConfig("全屏视频演示", GlobalConfig.ChannelId.FULLSCREEN_VIDEO, FullScreenVideoActivity.class));
+        list.add(new GridViewConfig("其它测试", "", null, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopuWindowHelper.showPopuWindow2(MainActivity.this.getWindow().getDecorView(),MainActivity.this);
+            }
+        }));
         GridAdapter gridAdapter = new GridAdapter();
         gridAdapter.addList(list);
         gridView.setAdapter(gridAdapter);
