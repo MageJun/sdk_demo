@@ -111,6 +111,7 @@ public class FeedListTopTextActivity extends Activity{
         holder.poster = adView.findViewById(R.id.img_poster);
         holder.name = adView.findViewById(R.id.text_title);
         holder.desc = adView.findViewById(R.id.text_desc);
+        holder.adSource = adView.findViewById(R.id.textView3);
         holder.download = adView.findViewById(R.id.btn_download);
         logoAQ.id(R.id.img_logo).image(TextUtils.isEmpty(ad.getIconUrl()) ? ad.getImageUrl() : ad.getIconUrl(), false, true);
         holder.name.setText(ad.getTitle());
@@ -127,9 +128,7 @@ public class FeedListTopTextActivity extends Activity{
                 +", imgUrl = "+ad.getAdExtras().getStringExtra(AdExtras.EXTRA_IMG_URL,"无"));
         ad.attach(FeedListTopTextActivity.this);
         String adSource = ad.getAdExtras().getStringExtra(AdExtras.EXTRA_AD_SOURCE,"");
-        if(!TextUtils.isEmpty(adSource)){
-            holder.desc.setText("广告源: "+adSource);
-        }
+        holder.adSource.setText("广告源："+adSource);
         View result = ad.bindView(adView, null, fl, clickableViews,new NativeAdListener() {
             @Override
             public void onADExposed() {
@@ -217,6 +216,7 @@ public class FeedListTopTextActivity extends Activity{
         public RelativeLayout adInfoContainer;
         public TextView name;
         public TextView desc;
+        public TextView adSource;
         public ImageView logo;
         public ImageView poster;
         public Button download;
@@ -229,6 +229,7 @@ public class FeedListTopTextActivity extends Activity{
         } else {
             button.setText("下载");
         }
+        button.setVisibility(View.INVISIBLE);
     }
 
 }
