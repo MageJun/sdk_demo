@@ -12,7 +12,6 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.adsdk.demo.GlobalConfig;
@@ -42,7 +41,6 @@ public class SplashActivity extends Activity {
     AdRequest adRequest;
     private View loadOnlyView;
     private boolean isLoadOnly = false;
-    private Button btnShow;
     private AdController adController;
 
     @Override
@@ -50,26 +48,15 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_ID);
         loadOnlyView = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_LOAD_ONLY_ID);
-        btnShow = findViewById(GlobalConfig.RConfig.SPLASH_ACTIVITY_LAYOUT_SHOW_ID);
-        btnShow.setEnabled(false);
         loadOnlyView.setVisibility(View.VISIBLE);
     }
 
 
     public void onClick(View view){
         switch (view.getId()) {
-            case R.id.btn_loadOnly :
-                isLoadOnly = true;
-                btnShow.setEnabled(false);
-                featchAd();
-                break;
-            case R.id.btn_show:
-                loadOnlyView.setVisibility(View.GONE);
-                showAds();
-                break;
             case R.id.btn_loadAndShow:
-                loadOnlyView.setVisibility(View.GONE);
                 isLoadOnly = false;
+                loadOnlyView.setVisibility(View.GONE);
                 featchAd();
                 break;
         }
@@ -172,7 +159,6 @@ public class SplashActivity extends Activity {
              */
             LogControl.i(TAG, "onAdLoaded");
             adController = controller;
-            btnShow.setEnabled(true);
         }
 
         /**
@@ -193,6 +179,7 @@ public class SplashActivity extends Activity {
                         4、请求太频繁、停一会儿再操作
                         5、新买的测试机而且没有手机卡 大概率获取不到广告的
                  */
+            next();
         }
 
         @Override
