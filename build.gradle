@@ -91,11 +91,11 @@ dependencies {
     implementation "com.huawei.hms:ads-consent:$HWConsent"
 
     //广点通
-    implementation files('thrid_sdk_libs/GDTSDK.gxb_unionNoPlugin.4.253.1123.aar')
+    implementation files('thrid_sdk_libs/GDTSDK.unionNormal.4.232.1102.aar')
 
 
     //demo 聚合SDK
-    implementation files('libs/juhe_ad_sdk_l_v80_demo.aar')
+    implementation files('libs/juhe_ad_sdk_l_v81_demo.aar')
 
 
 }
