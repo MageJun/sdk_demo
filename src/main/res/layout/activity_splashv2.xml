@@ -41,7 +41,7 @@
             android:text="Load"
             android:textSize="14sp"
             android:onClick="onClick"
-            android:visibility="invisible"/>
+            android:visibility="gone"/>
         <Button
             android:id="@+id/btn_show"
             android:layout_width="match_parent"
