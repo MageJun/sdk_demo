@@ -159,6 +159,8 @@ public class SplashActivity extends Activity {
              */
             LogControl.i(TAG, "onAdLoaded");
             adController = controller;
+            //可以设置监听下载应用提示弹窗
+//            adController.setAdDownloadConfirmListener(ApkDownLoadHandler.makeAdDownloadConfirmListener());
         }
 
         /**

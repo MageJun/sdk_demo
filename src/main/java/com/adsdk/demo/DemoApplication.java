@@ -20,15 +20,15 @@ import com.analytics.sdk.client.SdkConfiguration;
  *
  */
 public class DemoApplication extends MultiDexApplication {
-    private static Context sContext ;
+    public static Context sIntance ;
 
     public static Context getAppContext(){
-        return sContext;
+        return sIntance;
     }
     @Override
     public void onCreate() {
         super.onCreate();
-        sContext = this;
+        sIntance = this;
         //demo中 我们所有的请求已经做过线程优化处理 请勿在子线程中请求
         //请求广告不需要单独放到线程中去执行，内部是非阻塞实现;
 

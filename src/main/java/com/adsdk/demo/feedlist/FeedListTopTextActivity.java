@@ -312,7 +312,8 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
                 // 重要 ！！！ 绑定视图到Activity
                 // 重要 ！！！ 绑定视图到Activity
                 ad.attach(FeedListTopTextActivity.this);
-
+                //可以设置监听下载应用提示弹窗
+//                ad.setAdDownloadConfirmListener(ApkDownLoadHandler.makeAdDownloadConfirmListener("NaitveAdData"));
                 View result = ad.bindView(convertView, null, adlogoLayoutParams, clickableViews, new NativeAdListener() {
                     @Override
                     public void onADExposed() {
