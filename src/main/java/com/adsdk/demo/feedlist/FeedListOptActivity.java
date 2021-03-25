@@ -58,6 +58,10 @@ public class FeedListOptActivity extends Activity{
     @Override
     protected void onResume() {
         super.onResume();
+        /**
+         * 这个方法中需要调用resume方法，主要作用是对落地页返回后，恢复广告的状态，否则会导致落地页返回后广告无法再次点击
+         *
+         */
         if(nativeAdData!=null){
             nativeAdData.resume();
         }
@@ -66,6 +70,9 @@ public class FeedListOptActivity extends Activity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        /**
+         * 页面销毁的时候进行资源释放
+         */
         if(adRequest!=null){
             adRequest.recycle();
         }
