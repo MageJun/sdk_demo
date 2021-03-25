@@ -65,6 +65,7 @@
         <activity android:name=".feedlist.TestFeedListLeftIconActivity" />
         <activity android:name=".feedlist.FeedListVideoActivity" />
         <activity android:name=".feedlist.FeedListVideoDevContainerRenderActivity" />
+        <activity android:name=".feedlist.FeedListOptActivity" />
         <activity
             android:name=".common.DevMainActivity"
             android:launchMode="singleTask"

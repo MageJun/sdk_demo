@@ -70,8 +70,6 @@ public class FeedListTopTextActivity extends Activity implements AbsListView.OnS
         setContentView(R.layout.activity_feedlist_native_ad_listview);
         initView();
         requestData();
-        requestData();
-        requestData();
     }
 
     private void requestData() {
