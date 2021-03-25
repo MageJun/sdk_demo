@@ -21,14 +21,14 @@ import android.widget.TextView;
 import com.adsdk.demo.banner.BannerActivity;
 import com.adsdk.demo.common.GridViewConfig;
 import com.adsdk.demo.feedlist.FeedListActivity;
-import com.adsdk.demo.feedlist.FeedListTopTextActivity;
+import com.adsdk.demo.feedlist.FeedListOptActivity;
 import com.adsdk.demo.feedlist.FeedListVideoDevContainerRenderActivity;
 import com.adsdk.demo.interstitial.InterstitialActivity;
-import com.analytics.sdk.client.AdRequest;
 import com.adsdk.demo.splash.SplashActivity;
 import com.adsdk.demo.splash.SplashSkipViewActivity;
 import com.adsdk.demo.video.FullScreenVideoActivity;
 import com.adsdk.demo.video.RewardVideoActivity;
+import com.analytics.sdk.client.AdRequest;
 import com.qq.e.comm.managers.status.SDKStatus;
 
 import java.util.ArrayList;
@@ -102,31 +102,9 @@ public class MainActivity extends Activity {
         gridView = this.findViewById(GlobalConfig.RConfig.MAIN_ACTIVITY_BTN_GRIDVIEW_ID);
         List<GridViewConfig> list = new ArrayList<>();
         list.add(new GridViewConfig("开屏演示", GlobalConfig.ChannelId.SPLASH, SplashActivity.class));
-//        list.add(new GridViewConfig("开屏Window演示", GlobalConfig.ChannelId.SPLASH, SplashActivity.class, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new AlertDialog.Builder(MainActivity.this)
-//                        .setTitle("悬浮窗")
-//                        .setMessage("需要打开悬浮窗权限!")
-//                        .setPositiveButton("立即开启", new DialogInterface.OnClickListener() {
-//                            @TargetApi(Build.VERSION_CODES.M)
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                new SplashWindow().showWindow(MainActivity.this);
-//                            }
-//                        })
-//                        .setNegativeButton("不再提示", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                            }
-//                        }).setCancelable(false).show();
-//
-//            }
-//        }));
         list.add(new GridViewConfig("开屏自定义跳过", GlobalConfig.ChannelId.SPLASH, SplashSkipViewActivity.class));
         list.add(new GridViewConfig("信息流模版演示", GlobalConfig.ChannelId.FEED_LIST, FeedListActivity.class));
-        list.add(new GridViewConfig("信息流自渲染演示", GlobalConfig.ChannelId.FEED_LIST_NATIVE, FeedListTopTextActivity.class));
+        list.add(new GridViewConfig("信息流自渲染演示", GlobalConfig.ChannelId.FEED_LIST_NATIVE, FeedListOptActivity.class));
         list.add(new GridViewConfig("信息流自渲染视频(开发者定义封面)", GlobalConfig.ChannelId.FEED_LIST_NATIVE_VIDEO, FeedListVideoDevContainerRenderActivity.class));
         list.add(new GridViewConfig("横幅演示", GlobalConfig.ChannelId.BANNER, BannerActivity.class));
         list.add(new GridViewConfig("插屏演示", GlobalConfig.ChannelId.INTERSTITIAL, InterstitialActivity.class));

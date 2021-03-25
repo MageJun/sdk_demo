@@ -1,0 +1,182 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:background="#ffffff"
+    tools:ignore="MissingDefaultResource">
+
+    <Button
+        android:id="@+id/loadSapmle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:text="加载Sample信息流"
+        android:onClick="onClick"
+        />
+    <Button
+        android:id="@+id/loadList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:layout_marginTop="5dp"
+        android:text="加载ListView信息流"
+        android:onClick="onClick"/>
+    <Button
+        android:id="@+id/show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:text="展示广告"
+        android:onClick="onClick"/>
+
+    <LinearLayout
+        android:id="@+id/posIdContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="广告位id："
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/posId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:text="" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp"
+        android:background="#1E00E5FF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        >
+        <Spinner
+            android:layout_marginBottom="10dp"
+            android:id="@+id/id_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <CheckBox
+            android:id="@+id/cb_none_video_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="不配置VideoOption，使用默认值"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频自动播放网络条件："
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/spinner_network"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/play_video_network" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/btn_mute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="静音自动播放"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/btn_detail_mute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="视频详情页静音"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cbMinVideoDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频最小时长(闭区间): "
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/etMinVideoDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cbMaxVideoDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="视频最大时长(闭区间): "
+                android:textSize="18dp" />
+
+            <EditText
+                android:id="@+id/etMaxVideoDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>
